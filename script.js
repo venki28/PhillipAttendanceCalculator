@@ -17,21 +17,6 @@ const holidays = [
   { id: 16, Date: "25-Dec-25", Day: "Thursday", eventName: "Christmas" }
 ];
 
-document.addEventListener("DOMContentLoaded", function () {
-  function enforceInputLimits(inputId, min, max) {
-    const input = document.getElementById(inputId);
-
-    input.addEventListener("input", function () {
-      let val = parseInt(this.value, 10);
-      if (isNaN(val)) return;
-      if (val < min) this.value = min;
-      if (val > max) this.value = max;
-    });
-  }
-  enforceInputLimits("presentDays", 0, 30);
-  enforceInputLimits("personalLeaves", 0, 30);
-});
-
 function getMonthIndex(monAbbr) {
   const monthMap = {
     Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
@@ -155,4 +140,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentMonth = new Date().getMonth();
   document.getElementById("monthSelect").value = currentMonth;
   onMonthChange();
+
+  function enforceInputLimits(inputId, min, max) {
+    const input = document.getElementById(inputId);
+
+    input.addEventListener("input", function () {
+      let val = parseInt(this.value, 10);
+      if (isNaN(val)) return;
+      if (val < min) this.value = min;
+      if (val > max) this.value = max;
+    });
+  }
+  enforceInputLimits("presentDays", 0, 30);
+  enforceInputLimits("personalLeaves", 0, 30);
 });
