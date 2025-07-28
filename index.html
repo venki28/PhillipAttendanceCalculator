@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attendance Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Phillip Capital Attendance Calculator <p id="currentMonth"></p> </h2>
+      
+    </div>
+
+    <div class="main">
+      <div class="form">
+        <label for="monthSelect">Select Month:</label>
+        <select id="monthSelect" onchange="onMonthChange()">
+          <option value="0">January</option>
+          <option value="1">February</option>
+          <option value="2">March</option>
+          <option value="3">April</option>
+          <option value="4">May</option>
+          <option value="5">June</option>
+          <option value="6">July</option>
+          <option value="7">August</option>
+          <option value="8">September</option>
+          <option value="9">October</option>
+          <option value="10">November</option>
+          <option value="11">December</option>
+        </select>
+
+        <label>Total Days in Month:</label>
+        <input type="text" id="totalDays" readonly />
+
+        <label>Public Holidays (Excl. Weekends):</label>
+        <input type="text" id="govtHolidays" readonly />
+
+        <label>Weekends (Sat/Sun):</label>
+        <input type="text" id="weekends" readonly />
+
+        <label for="presentDays">Days You Attended Office:</label>
+        <input type="number" id="presentDays" placeholder="e.g. 1" value="0" />
+
+        <label for="personalLeaves">Personal/Sick Leaves taken:</label>
+        <input type="number" id="personalLeaves" placeholder="e.g. 1" value="0"/>
+
+        <button onclick="calculateAttendance()">Calculate Attendance</button>
+      </div>
+
+      <div class="sidebar">
+        <h3>Holidays This Month</h3>
+        <ul id="holidayList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="popup"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
