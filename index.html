@@ -40,11 +40,11 @@
         <label>Weekends (Sat/Sun):</label>
         <input type="text" id="weekends" readonly />
 
-        <label for="presentDays">Days You Attended Office:</label>
-        <input type="number" id="presentDays" placeholder="e.g. 1" value="0" />
+        <label for="presentDays">Enter the No Of days You Attended Office:</label>
+        <input type="number" id="presentDays" min="0" max="30" placeholder="e.g. 1" value="0" />
 
-        <label for="personalLeaves">Personal/Sick Leaves taken:</label>
-        <input type="number" id="personalLeaves" placeholder="e.g. 1" value="0"/>
+        <label for="personalLeaves">Enter the No Of Personal/Sick Leaves taken:</label>
+        <input type="number" id="personalLeaves" min="0" max="30" placeholder="e.g. 1" value="0"/>
 
         <button onclick="calculateAttendance(true)">Calculate Attendance</button>
       </div>
