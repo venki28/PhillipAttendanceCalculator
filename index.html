@@ -46,12 +46,13 @@
         <label for="personalLeaves">Personal/Sick Leaves taken:</label>
         <input type="number" id="personalLeaves" placeholder="e.g. 1" value="0"/>
 
-        <button onclick="calculateAttendance()">Calculate Attendance</button>
+        <button onclick="calculateAttendance(true)">Calculate Attendance</button>
       </div>
 
       <div class="sidebar">
         <h3>Holidays This Month</h3>
         <ul id="holidayList"></ul>
+        <p id="target"></p>
       </div>
     </div>
   </div>

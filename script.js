@@ -67,6 +67,7 @@ function onMonthChange() {
   document.getElementById("weekends").value = weekends;
 
   displayHolidays(holidays);
+  calculateAttendance(false);
 
   document.getElementById("currentMonth").textContent =
     `${new Date(year, month).toLocaleString('default', { month: 'long' })} - ${year}`;
@@ -88,7 +89,7 @@ function displayHolidays(holidays) {
   });
 }
 
-function calculateAttendance() {
+function calculateAttendance(isButtonClick) {
   const workingDays =
     parseInt(document.getElementById("totalDays").value || 0) -
     parseInt(document.getElementById("govtHolidays").value || 0) -
@@ -103,9 +104,25 @@ function calculateAttendance() {
   const requiredDaysFor60 = Math.ceil(0.6 * workingDays);
   const remaining = Math.max(0, requiredDaysFor60 - actualPresent);
 
-  const message = `Your attendance is ${percentage}%. You need ${remaining} more day(s) to reach 60%.`;
+  if (isButtonClick) {
+    let message = ""
+    if(percentage >= 60){
+      message = `Woahhh your target is completed. Your attendance is ${percentage}%.`
+    }
+    else{
+      message = `Your attendance is ${percentage}%. You need ${remaining} more day(s) to reach 60%.`;
+    }   
+    showPopup(message);
+  }
+  else {
+    const target = document.getElementById("target");
+    target.innerHTML = ""; // Clear previous data
 
-  showPopup(message);
+    if (target) {
+      target.innerHTML = `You have to come ${remaining} day(s) to office to cover 60%`;
+      return;
+    }
+  }  
 }
 
 function showPopup(message) {
