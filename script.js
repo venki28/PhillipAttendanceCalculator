@@ -102,6 +102,10 @@ function calculateAttendance(isButtonClick) {
 
   const percentage = ((actualPresent / workingDays) * 100).toFixed(2);
   const requiredDaysFor60 = Math.ceil(0.6 * workingDays);
+  const requiredDaysFor65 = Math.ceil(0.65 * workingDays);
+  const requiredDaysFor70 = Math.ceil(0.75 * workingDays);
+  const requiredDaysFor75 = Math.ceil(0.75 * workingDays);
+  const requiredDaysFor80 = Math.ceil(0.8 * workingDays);
   const remaining = Math.max(0, requiredDaysFor60 - actualPresent);
 
   if (isButtonClick) {
@@ -116,10 +120,23 @@ function calculateAttendance(isButtonClick) {
   }
   else {
     const target = document.getElementById("target");
-    target.innerHTML = ""; // Clear previous data
+    const target65 = document.getElementById("target65");
+    const target70 = document.getElementById("target70");
+    const target75 = document.getElementById("target75");
+    const target80 = document.getElementById("target80");
+    // Clear previous data
+    target.innerHTML = ""; 
+    target65.innerHTML = "";
+    target70.innerHTML = "";
+    target75.innerHTML = "";
+    target80.innerHTML = "";
 
     if (target) {
       target.innerHTML = `You have to come ${remaining} day(s) to office to cover 60%`;
+      target65.innerHTML = requiredDaysFor65;
+      target70.innerHTML = requiredDaysFor70;
+      target75.innerHTML = requiredDaysFor75;
+      target80.innerHTML = requiredDaysFor80;
       return;
     }
   }  

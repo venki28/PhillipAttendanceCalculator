@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Attendance Calculator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="container">
     <div class="header">
-      <h2>Phillip Capital Attendance Calculator <p id="currentMonth"></p> </h2>
-      
+      <h2>Phillip Capital Attendance Calculator <p id="currentMonth"></p>
+      </h2>
+
     </div>
 
     <div class="main">
@@ -44,7 +47,7 @@
         <input type="number" id="presentDays" min="0" max="30" placeholder="e.g. 1" value="0" />
 
         <label for="personalLeaves">Enter the No Of Personal/Sick Leaves taken:</label>
-        <input type="number" id="personalLeaves" min="0" max="30" placeholder="e.g. 1" value="0"/>
+        <input type="number" id="personalLeaves" min="0" max="30" placeholder="e.g. 1" value="0" />
 
         <button onclick="calculateAttendance(true)">Calculate Attendance</button>
       </div>
@@ -53,6 +56,29 @@
         <h3>Holidays This Month</h3>
         <ul id="holidayList"></ul>
         <p id="target"></p>
+        <h3>Attendance Requirement</h3>
+        <table>
+          <tr>
+            <th>Percentage</th>
+            <th>Days</th>           
+          </tr>
+          <tr>
+            <td>80%</td>
+            <td id="target80"></td>
+          </tr>
+          <tr>
+            <td>75%</td>
+            <td id="target75"></td>
+          </tr>
+          <tr>
+            <td>70%</td>
+            <td id="target70"></td>
+          </tr>
+          <tr>
+            <td>65%</td>
+            <td id="target65"></td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
@@ -61,4 +87,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
