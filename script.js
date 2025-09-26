@@ -103,7 +103,7 @@ function calculateAttendance(isButtonClick) {
   const percentage = ((actualPresent / workingDays) * 100).toFixed(2);
   const requiredDaysFor60 = Math.ceil(0.6 * workingDays);
   const requiredDaysFor65 = Math.ceil(0.65 * workingDays);
-  const requiredDaysFor70 = Math.ceil(0.75 * workingDays);
+  const requiredDaysFor70 = Math.ceil(0.70 * workingDays);
   const requiredDaysFor75 = Math.ceil(0.75 * workingDays);
   const requiredDaysFor80 = Math.ceil(0.8 * workingDays);
   const remaining = Math.max(0, requiredDaysFor60 - actualPresent);
